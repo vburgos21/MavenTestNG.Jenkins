@@ -6,11 +6,19 @@ import org.testng.annotations.Test;
 
 public class BaseClass {
 	
+	WebDriver driver;
+	
 	@Test
 	public void setup() {
 		System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
+		driver = new ChromeDriver();
 		driver.get("https://google.com/");
+		driver.manage().window().maximize();
+	}
+	
+	@Test
+	public void close() {
+		driver.close();
 	}
 
 }
